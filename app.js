@@ -20,9 +20,6 @@ function adicionarAmigo() {
 
     // Exibe a lista atualizada
     exibirAmigos(); // Chama a função para atualizar a lista de amigos na interface
-    
-    // Exibe a lista atualizada (opcional)
-    console.log("Lista de amigos:", amigos);
 }
 
 function exibirAmigos() {
@@ -38,4 +35,22 @@ function exibirAmigos() {
         li.textContent = amigos[i]; // Define o texto do <li> como o nome do amigo
         lista.appendChild(li); // Adiciona o <li> à lista
     }
+}
+
+function sortearAmigo() {
+    // Valida se há amigos na lista
+    if (amigos.length === 0) {
+        alert("Não há amigos cadastrados para sortear.");
+        return;
+    }
+
+    // Gera um índice aleatório entre 0 e o tamanho do array - 1
+    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+
+    // Obtém o nome sorteado
+    let amigoSorteado = amigos[indiceAleatorio];
+
+    // Exibe o resultado na página
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = `<p>O amigo secreto sorteado é: <strong>${amigoSorteado}</strong></p>`;
 }
